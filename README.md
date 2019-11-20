@@ -1,1 +1,1 @@
-https://romanovetsd.github.io/goit-react-hw-04_movies/
+https://rdm-goit-react-hw-04.netlify.com/
