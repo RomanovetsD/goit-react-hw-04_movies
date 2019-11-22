@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import tvApiService from '../services/tv-api-service';
+import NotfoundFilms from '../components/NotfoundFilms';
 import Searchbar from '../components/Searchbar';
 
 export default class MoviesPage extends Component {
@@ -67,8 +68,8 @@ export default class MoviesPage extends Component {
     return (
       <div>
         <h1>Movie page</h1>
-
         <Searchbar onSearch={this.setSearchQuery} />
+        {results.length <= 0 && <NotfoundFilms />}
         <ul>
           {results.map(result => (
             <li key={result.id}>

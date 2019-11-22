@@ -28,6 +28,13 @@ code {
   padding-top: 30%;
 }
 
+.img {
+  padding-top: 30px;
+  opacity: 0.5;
+  width: 100vw;
+  height: 90vh;
+}
+
 .list {
   display: flex;
   font-weight: bold;
