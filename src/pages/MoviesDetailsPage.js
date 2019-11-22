@@ -10,7 +10,12 @@ import Reviews from '../components/Reviews';
 export default class MoviesDetailsPage extends Component {
   static propTypes = {
     history: PropTypes.shape({
-      goBack: PropTypes.func.isRequired,
+      push: PropTypes.func.isRequired,
+      pathname: PropTypes.string.isRequired,
+    }).isRequired,
+    location: PropTypes.shape({
+      state: PropTypes.string.isRequired,
+      pathname: PropTypes.string.isRequired,
     }).isRequired,
     match: PropTypes.shape({
       params: PropTypes.shape({ movieId: PropTypes.string.isRequired }),
@@ -45,9 +50,17 @@ export default class MoviesDetailsPage extends Component {
       });
   };
 
+  // eslint-disable-next-line consistent-return
   moveToPreviousPage = () => {
-    const { history } = this.props;
-    history.goBack();
+    const { location, history } = this.props;
+    if (!location.state) {
+      return history.push('/');
+    }
+
+    history.push({
+      pathname: '/movie',
+      state: { from: '/dashboard' },
+    });
   };
 
   render() {
