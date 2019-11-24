@@ -1,4 +1,4 @@
-import { KEY, BASE_URL, QUERY_VALUE, SEARCH } from './constants';
+import { KEY, BASE_URL, QUERY_VALUE, SEARCH, TRENDING } from './constants';
 import routes from '../routes';
 
 const fetchMovieDetails = movieId => {
@@ -35,9 +35,16 @@ const fetchReviews = id => {
     });
 };
 
+const fetchTrending = () => {
+  return fetch(`${BASE_URL}/${TRENDING}?api_key=${KEY}`).then(res =>
+    res.json(),
+  );
+};
+
 export default {
   fetchMovieWithQuery,
   fetchMovieDetails,
   fetchCredits,
   fetchReviews,
+  fetchTrending,
 };

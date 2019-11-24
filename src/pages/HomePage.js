@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { KEY, BASE_URL, TRENDING } from '../services/constants';
 import routes from '../routes';
+import tvApiService from '../services/tv-api-service';
 
 export default class HomePage extends Component {
   state = {
@@ -9,8 +9,8 @@ export default class HomePage extends Component {
   };
 
   componentDidMount() {
-    fetch(`${BASE_URL}/${TRENDING}?api_key=${KEY}`)
-      .then(res => res.json())
+    tvApiService
+      .fetchTrending()
       .then(data => {
         this.setState({ results: data.results });
       })

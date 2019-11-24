@@ -76,7 +76,12 @@ export default class MoviesPage extends Component {
         <ul>
           {results.map(result => (
             <li key={result.id}>
-              <Link to={`${match.url}/${result.id}`}>
+              <Link
+                to={{
+                  state: { from: 'location' },
+                  pathname: `${match.url}/${result.id}`,
+                }}
+              >
                 {result.name}
                 {result.title}
               </Link>

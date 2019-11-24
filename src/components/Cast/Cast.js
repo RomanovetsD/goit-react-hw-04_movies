@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import tvApiService from '../../services/tv-api-service';
 import Loader from '../Loader/Loader';
+import { FILM_IMAGE } from '../../services/constants';
 import ErrorNotification from '../ErrorNotification/ErrorNotification';
 
 export default class Cast extends Component {
@@ -60,7 +61,7 @@ export default class Cast extends Component {
               <li key={person.cast_id} className="castListItem">
                 <object
                   title="This object has text"
-                  data={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
+                  data={`${FILM_IMAGE}${person.profile_path}`}
                   type="image/png"
                   width="100"
                 />

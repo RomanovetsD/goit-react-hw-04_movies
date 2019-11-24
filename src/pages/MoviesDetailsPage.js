@@ -3,6 +3,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import tvApiService from '../services/tv-api-service';
 import Loader from '../components/Loader/Loader';
+import routes from '../routes';
+import { CAST_IMAGE } from '../services/constants';
 import ErrorNotification from '../components/ErrorNotification/ErrorNotification';
 import Cast from '../components/Cast/Cast';
 import Reviews from '../components/Reviews/Reviews';
@@ -54,12 +56,12 @@ export default class MoviesDetailsPage extends Component {
   moveToPreviousPage = () => {
     const { location, history } = this.props;
     if (!location.state) {
-      return history.push('/');
+      return history.push(`${routes.MOVIES}`);
     }
 
     history.push({
-      pathname: '/movie',
-      state: { from: '/dashboard' },
+      pathname: `${routes.MOVIES}`,
+      state: { from: 'location' },
     });
   };
 
@@ -84,7 +86,7 @@ export default class MoviesDetailsPage extends Component {
             </button>
             <div className="film_description">
               <img
-                src={`https://image.tmdb.org/t/p/w300/${result.poster_path}`}
+                src={`${CAST_IMAGE}${result.poster_path}`}
                 alt={result.title}
                 className="movie_img"
               />
