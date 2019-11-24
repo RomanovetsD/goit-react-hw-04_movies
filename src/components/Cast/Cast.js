@@ -31,10 +31,8 @@ export default class Cast extends Component {
     this.setState({ isLoading: true });
     tvApiService
       .fetchCredits(id)
-      .then(cast => {
-        this.setState({
-          cast,
-        });
+      .then(data => {
+        this.setState({ cast: data });
       })
       .catch(error => {
         this.setState({
@@ -59,10 +57,9 @@ export default class Cast extends Component {
           <ul className="castList">
             {cast.map(person => (
               <li key={person.cast_id} className="castListItem">
-                <object
-                  title="This object has text"
-                  data={`${FILM_IMAGE}${person.profile_path}`}
-                  type="image/png"
+                <img
+                  src={`${FILM_IMAGE}${person.profile_path}`}
+                  alt="actor"
                   width="100"
                 />
                 <p className="castListName">{person.name}</p>

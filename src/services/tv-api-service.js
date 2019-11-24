@@ -15,9 +15,17 @@ const fetchMovieWithQuery = searchQuery => {
     .then(data => data.results);
 };
 
+const fetchReviews = id => {
+  return fetch(`${BASE_URL}${routes.MOVIES}/${id}/reviews?api_key=${KEY}`)
+    .then(res => res.json())
+    .then(data => {
+      return data.results;
+    });
+};
+
 const fetchCredits = id => {
   return fetch(
-    `${BASE_URL}${routes.MOVIES}/${id}${routes.MOVIE_CAST}?api_key=${KEY}`,
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=5f7ac1b9f858cfa7079e5dbc9197589b`,
   )
     .then(res => res.json())
     .then(data => {
@@ -25,15 +33,8 @@ const fetchCredits = id => {
     });
 };
 
-const fetchReviews = id => {
-  return fetch(
-    `${BASE_URL}${routes.MOVIES}/${id}${routes.MOVIE_REVIEWS}?api_key=${KEY}`,
-  )
-    .then(res => res.json())
-    .then(data => {
-      return data.results;
-    });
-};
+// https://api.themoviedb.org/3/movie/${id}/credits?api_key=5f7ac1b9f858cfa7079e5dbc9197589b
+// ${BASE_URL}${routes.MOVIES}/${id}/credits?api_key=${KEY}
 
 const fetchTrending = () => {
   return fetch(`${BASE_URL}/${TRENDING}?api_key=${KEY}`).then(res =>
@@ -44,7 +45,7 @@ const fetchTrending = () => {
 export default {
   fetchMovieWithQuery,
   fetchMovieDetails,
-  fetchCredits,
   fetchReviews,
   fetchTrending,
+  fetchCredits,
 };
