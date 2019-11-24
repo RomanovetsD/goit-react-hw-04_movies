@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Navigation from './Navigation';
+import Navigation from '../Navigation/Navigation';
 
-import HomePages from '../pages/HomePage';
-import MoviesPage from '../pages/MoviesPage';
-import MoviesDetailsPage from '../pages/MoviesDetailsPage';
-import routes from '../routes';
+import HomePages from '../../pages/HomePage';
+import MoviesPage from '../../pages/MoviesPage';
+import MoviesDetailsPage from '../../pages/MoviesDetailsPage';
+import routes from '../../routes';
 
 const App = () => (
   <BrowserRouter>

@@ -1,7 +1,9 @@
-export default {
+const routes = Object.freeze({
   HOME: '/',
   MOVIES: '/movie',
   MOVIE_DETAILS: '/movie/:movieId',
-  CAST: '/movies/:movieId/cast',
-  REVIEWS: '/movies/:movieId/reviews',
-};
+  MOVIE_CAST: '/credits',
+  MOVIE_REVIEWS: '/reviews',
+});
+
+export default routes;

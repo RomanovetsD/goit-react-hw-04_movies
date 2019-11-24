@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import tvApiService from '../services/tv-api-service';
-import Loader from '../components/Loader';
-import ErrorNotification from '../components/ErrorNotification';
-import Cast from '../components/Cast';
-import Reviews from '../components/Reviews';
+import Loader from '../components/Loader/Loader';
+import ErrorNotification from '../components/ErrorNotification/ErrorNotification';
+import Cast from '../components/Cast/Cast';
+import Reviews from '../components/Reviews/Reviews';
 
 export default class MoviesDetailsPage extends Component {
   static propTypes = {

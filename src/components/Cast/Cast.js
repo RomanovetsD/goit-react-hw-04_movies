@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import tvApiService from '../services/tv-api-service';
-import Loader from './Loader';
-import ErrorNotification from './ErrorNotification';
+import tvApiService from '../../services/tv-api-service';
+import Loader from '../Loader/Loader';
+import ErrorNotification from '../ErrorNotification/ErrorNotification';
 
 export default class Cast extends Component {
   static propTypes = {

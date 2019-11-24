@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Searchbar extends Component {
+export default class SearchBar extends Component {
   static propTypes = {
     onSearch: PropTypes.func.isRequired,
   };

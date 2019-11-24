@@ -1,12 +1,15 @@
+import { KEY, BASE_URL, QUERY_VALUE, SEARCH } from './constants';
+import routes from '../routes';
+
 const fetchMovieDetails = movieId => {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=5f7ac1b9f858cfa7079e5dbc9197589b&language=en-US`,
+    `${BASE_URL}${routes.MOVIES}/${movieId}?api_key=${KEY}&language=en-US`,
   ).then(res => res.json());
 };
 
 const fetchMovieWithQuery = searchQuery => {
   return fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=5f7ac1b9f858cfa7079e5dbc9197589b&language=en-US&query=${searchQuery}&page=1&include_adult=false`,
+    `${BASE_URL}${SEARCH}${routes.MOVIES}?api_key=${KEY}&language=en-US${QUERY_VALUE}${searchQuery}&page=1&include_adult=false`,
   )
     .then(res => res.json())
     .then(data => data.results);
@@ -14,7 +17,7 @@ const fetchMovieWithQuery = searchQuery => {
 
 const fetchCredits = id => {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=5f7ac1b9f858cfa7079e5dbc9197589b`,
+    `${BASE_URL}${routes.MOVIES}/${id}${routes.MOVIE_CAST}?api_key=${KEY}`,
   )
     .then(res => res.json())
     .then(data => {
@@ -24,7 +27,7 @@ const fetchCredits = id => {
 
 const fetchReviews = id => {
   return fetch(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=5f7ac1b9f858cfa7079e5dbc9197589b`,
+    `${BASE_URL}${routes.MOVIES}/${id}${routes.MOVIE_REVIEWS}?api_key=${KEY}`,
   )
     .then(res => res.json())
     .then(data => {
