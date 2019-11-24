@@ -55,14 +55,12 @@ export default class MoviesDetailsPage extends Component {
   // eslint-disable-next-line consistent-return
   moveToPreviousPage = () => {
     const { location, history } = this.props;
-    if (!location.state) {
-      return history.push(`${routes.MOVIES}`);
+    const { state } = location;
+    if (!state) {
+      return history.push(routes.HOME);
     }
 
-    history.push({
-      pathname: `${routes.MOVIES}`,
-      state: { from: 'location' },
-    });
+    history.push(state.from);
   };
 
   render() {

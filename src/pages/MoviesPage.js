@@ -67,7 +67,8 @@ export default class MoviesPage extends Component {
 
   render() {
     const { results } = this.state;
-    const { match } = this.props;
+    const { match, location } = this.props;
+
     return (
       <div>
         <h1>Movie page</h1>
@@ -78,7 +79,7 @@ export default class MoviesPage extends Component {
             <li key={result.id}>
               <Link
                 to={{
-                  state: { from: 'location' },
+                  state: { from: location },
                   pathname: `${match.url}/${result.id}`,
                 }}
               >
