@@ -71,6 +71,12 @@ code {
   margin-left: 30px;
 }
 
+.input {
+  background: linear-gradient(to right top, yellow 50%, rgb(156, 203, 247) 50%);
+  font-weight: bold;
+  color: black;
+}
+
 .movie_img {
   margin-left: 30px;
 }

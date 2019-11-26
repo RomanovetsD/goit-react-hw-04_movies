@@ -26,8 +26,13 @@ export default class SearchBar extends Component {
         <input
           type="text"
           value={value}
+          placeholder="Search  movies..."
           onChange={this.onChange}
           className="input"
+          pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
+          required
+          oninvalid="setCustomValidity('Имя должно содержать 2-20 символов')"
+          onInput="setCustomValidity('')"
         />
         <button type="submit">Search</button>
       </form>

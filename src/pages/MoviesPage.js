@@ -74,21 +74,23 @@ export default class MoviesPage extends Component {
         <h1>Movie page</h1>
         <SearchBar onSearch={this.setSearchQuery} />
         {results.length <= 0 && <NotfoundFilms />}
-        <ul>
-          {results.map(result => (
-            <li key={result.id}>
-              <Link
-                to={{
-                  state: { from: location },
-                  pathname: `${match.url}/${result.id}`,
-                }}
-              >
-                {result.name}
-                {result.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {results && (
+          <ul>
+            {results.map(result => (
+              <li key={result.id}>
+                <Link
+                  to={{
+                    state: { from: location },
+                    pathname: `${match.url}/${result.id}`,
+                  }}
+                >
+                  {result.name}
+                  {result.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     );
   }
